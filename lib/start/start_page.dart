@@ -96,8 +96,10 @@ class _StartPageState extends State<StartPage> {
 }
 
 extension AllertExt on BuildContext {
-  void showAlert(String text,{Function? onClick}){
+  void showAlert(String text,{String okBtnText = "Ok",Function? onClick}){
+
     showDialog(
+        barrierDismissible: false,
         context: this,
         builder: (BuildContext context) {
           return AlertDialog(
@@ -109,7 +111,7 @@ extension AllertExt on BuildContext {
                     Navigator.pop(context, null);
                     onClick?.call();
                   },
-                  child: const Text("Ok"))
+                  child: Text(okBtnText))
             ],
           );
         });

@@ -116,6 +116,7 @@ class _ProcessPageState extends State<ProcessPage> {
                           vm.putResult(vm.geServerRequest()).then((response){
                             if(response!.error == false ){
                               context.showAlert("Result was sent to server, all is correct",
+                                  okBtnText: "See results",
                                   onClick: (){
                                     Navigator.pushNamed(context, ResultListPage.routeName);
                                   });
